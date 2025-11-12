@@ -19,13 +19,22 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    ThemeData temaClaro = ThemeData(
+      colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
+      primarySwatch: Colors.blue,
+      visualDensity: VisualDensity.adaptivePlatformDensity,
+    );
+    ThemeData temaEscuro = ThemeData(
+      colorScheme: ColorScheme.dark(primary: Colors.blue),
+      primarySwatch: Colors.blue,
+      visualDensity: VisualDensity.adaptivePlatformDensity,
+    );
     return MaterialApp(
       title: 'Tarefas',
-      theme: ThemeData(
-        colorScheme: ColorScheme.dark(),
-        primarySwatch: Colors.blue,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-      ),
+      theme: temaClaro,
+      darkTheme: temaEscuro,
+      themeMode: ThemeMode.system,
       home: const AuthCheck(),
       debugShowCheckedModeBanner: false,
     );
